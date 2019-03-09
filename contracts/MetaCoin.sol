@@ -12,17 +12,20 @@ contract MetaCoin {
 	mapping (address => uint) balances;
 	mapping (address => string) messages;
 
-	event Transfer(address indexed _from, address indexed _to, uint256 _value);
+	event Transfer(address indexed _from, address indexed _to, uint256 _value, string _messageR, string _messageS);
 
 	function MetaCoin() {
-		balances[tx.origin] = 256;
-		messages[tx.origin] = "No Message";
+		balances[tx.origin] = 10000;
+		messages[tx.origin] = "none";
 	}
 
-	function sendCoin(address receiver, uint amount, string message) returns(bool sufficient) {
+	function sendCoin(address receiver, uint amount, string messageR, string messageS) returns(bool sufficient) {
 		if (balances[msg.sender] < amount) return false;
-		messages[receiver] = message;
-		Transfer(msg.sender, receiver, amount);
+		balances[msg.sender] -= amount;
+		balances[receiver] += amount;
+		messages[receiver] = messageR;
+		messages[msg.sender] = messageS;
+		Transfer(msg.sender, receiver, amount, messageR, messageS);
 		return true;
 	}
 

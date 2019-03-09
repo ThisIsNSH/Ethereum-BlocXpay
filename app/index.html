@@ -1,26 +1,186 @@
-<!DOCTYPE html>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Hack On Hills 4">
+    <meta name="author" content="Team Infamous">
+    <title>BlocX Pay</title>
+    <script src="./app.js"></script>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/checkout/">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+    <!-- Custom styles for this template -->
+    <!-- <link href="form-validation.css" rel="stylesheet"> -->
+  
+  </head>
+  <body class="bg-light">
+    <div class="container">
+  <div class="py-5 text-center">
+    <img class="d-block mx-auto mb-4" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Ethereum_logo_2014.svg/628px-Ethereum_logo_2014.svg.png" alt="" width="45" height="72">
+    <h2>BlocX Pay</h2>
+    <p class="lead">BlocX Pay allows users to easily use ETH as a mode of transaction</p>
+  </div>
+
+    <div class="col-md-12 order-md-1">
+      <h4 class="mb-3">Transaction Details</h4>
+
+      <form class="needs-validation" novalidate>
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label for="firstName">First name</label>
+            <input type="text" class="form-control" id="firstNameS" placeholder="Amishi" value="" required>
+            <div class="invalid-feedback">
+              Valid first name is required.
+            </div>
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="lastName">Last name</label>
+            <input type="text" class="form-control" id="lastNameS" placeholder="Bansal" value="" required>
+            <div class="invalid-feedback">
+              Valid last name is required.
+            </div>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="username">Your Account ID</label>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text">#</span>
+            </div>
+            <input type="text" class="form-control" id="account" placeholder="0xa1cdd9652af1e4831c08fd5b6802a9d2e6ed0237" required>
+            <div class="invalid-feedback" style="width: 100%;">
+              Your account is required.
+            </div>
+          </div>
+        </div>
+
+        <hr class="mb-4">
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label for="firstName">First name</label>
+            <input type="text" class="form-control" id="firstNameR" placeholder="Sumati" value="" required>
+            <div class="invalid-feedback">
+              Valid first name is required.
+            </div>
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="lastName">Last name</label>
+            <input type="text" class="form-control" id="lastNameR" placeholder="Mohan" value="" required>
+            <div class="invalid-feedback">
+              Valid last name is required.
+            </div>
+          </div>
+        </div>
+          <div class="mb-3">
+            <label for="username">Receiver's Account ID</label>
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text">#</span>
+              </div>
+              <input type="text" class="form-control" id="receiver" placeholder="0x6f0517cc805c175b957cc175e5849a12a7080919" required>
+              <div class="invalid-feedback" style="width: 100%;">
+                Receiver's account is required.
+              </div>
+            </div>
+          </div>
+        <hr class="mb-4">
+          <div class="mb-3">
+            <label for="username">Amount</label>
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text">ETH</span>
+              </div>
+              <input type="text" class="form-control" id="amount" placeholder="1000" required>
+              <div class="invalid-feedback" style="width: 100%;">
+                Amount is required.
+              </div>
+            </div>
+          </div>
+        <hr class="mb-4">
+      </form>
+        <button class="btn btn-primary btn-lg btn-block" id="send" onclick="App.sendCoin()" >Send ETH</button>
+    </div>
+    <br>
+    <br>
+     <div class="col-md-12 order-md-">
+      <h4 class="mb-3">Old Transactions</h4>
+      <div id="item-list"></div>
+    </div>
+
+  </div>
+
+
+ 
+  <footer class="my-5 pt-5 text-muted text-center text-small">
+    <p class="mb-1">&copy; 2019 Team Infamous</p>
+  </footer>
+
+
+
+</div>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+</body>
+</html>
+
+
+
+
+<!-- <!DOCTYPE html>
 <html>
 <head>
   <title>Ethereum Chat DApp</title>
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
   <script src="./app.js"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
-  <center><h1>Welcome</h1></center>
-  <center><h2>Ethereum Chat DApp</h2></center>
-  <center><h3>You have <span class="black"><span id="balance"></span> Characters Left</span></h3></center>
 
+  <center><h1>Ethereum DApp</h1></center>
+  <center><h4>Account: <span id="account"></span></h4></center>
   <br>
-  <center><h1>Send MetaChars</h1></center>
-  <br><label for="amount">Characters:</label><input type="text" id="amount" placeholder="e.g., 95"></input>
-  <br><label for="message">Message:</label><input type="text" id="message" placeholder="e.g., How u doing?"></input>
-  <br><label for="receiver">To Address:</label><input type="text" id="receiver" placeholder="e.g., 0x0e1e39ed2cb0e272e44035249d98c72d0306ffdb"></input>
+  <center><h3>You have <span><span id="balance" class="black"></span> ETH in Account</span></h3></center>
+  <br>
+  <center><br><input type="text" id="messageS" placeholder="Enter your name"></input></center>
+  <center><input type="text" id="amount" placeholder="Enter amount in ETH"></input></center>
+  <center><input type="text" id="messageR" placeholder="Enter receiver's name"></input></center>
+  <center><input type="text" id="receiver" placeholder="Enter receiver's account number"></input></center>
 
-  <br><br><center><button id="send" onclick="App.sendCoin()">Send MetaChars</button></center>
+  <br><center><button id="send" onclick="App.sendCoin()">Transact</button></center><br>
+
+  <center><h5><span id="status"><h5></span></center>
+  <center></center>
+  
+  <center><h5>Transaction History:<h5></center>
+  <center><div id="item-list"></div></center>
   <br><br>
-  <center><span id="status"></span></center>
-  <center><span id="messageField"></span></center>
-  <br>
-  <!-- <span class="hint"><strong>Hint:</strong> open the browser developer console to view any errors and warnings.</span> -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
+
 </body>
-</html>
+</html> -->

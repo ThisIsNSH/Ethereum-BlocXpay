@@ -1,46 +1,23 @@
-body {
-  margin-left: 25%;
-  margin-right: 25%;
-  margin-top: 7%;
-  font-family: "Open Sans", sans-serif;
+ul{
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
 }
 
-label {
-  display: inline-block;
-  width: 100px;
-}
-
-input {
-  width: 500px;
-  padding: 5px;
-  font-size: 16px;
-}
-
-button {
-  font-size: 16px;
-  padding: 5px;
-}
-
-h1, h2 {
-  display: inline-block;
-  vertical-align: middle;
-  margin-top: 0px;
-  margin-bottom: 10px;
-}
-
-h2 {
-  color: #AAA;
-  font-size: 32px;
-}
-
-h3 {
-  font-weight: normal;
-  color: #AAA;
-  font-size: 24px;
+#outer{
+    margin-bottom: 10px;
 }
 
 .black {
   color: black;
+}
+
+#green {
+  color: green;
+}
+
+#red {
+  color: red;
 }
 
 #balance {
@@ -48,5 +25,5 @@ h3 {
 }
 
 .hint {
-  color: #666;
+  color: #333;
 }
