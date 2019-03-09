@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ethereum Chat DApp</title>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+  <script src="./app.js"></script>
+</head>
+<body>
+  <center><h1>Welcome</h1></center>
+  <center><h2>Ethereum Chat DApp</h2></center>
+  <center><h3>You have <span class="black"><span id="balance"></span> Characters Left</span></h3></center>
+
+  <br>
+  <center><h1>Send MetaChars</h1></center>
+  <br><label for="amount">Characters:</label><input type="text" id="amount" placeholder="e.g., 95"></input>
+  <br><label for="message">Message:</label><input type="text" id="message" placeholder="e.g., How u doing?"></input>
+  <br><label for="receiver">To Address:</label><input type="text" id="receiver" placeholder="e.g., 0x0e1e39ed2cb0e272e44035249d98c72d0306ffdb"></input>
+
+  <br><br><center><button id="send" onclick="App.sendCoin()">Send MetaChars</button></center>
+  <br><br>
+  <center><span id="status"></span></center>
+  <center><span id="messageField"></span></center>
+  <br>
+  <!-- <span class="hint"><strong>Hint:</strong> open the browser developer console to view any errors and warnings.</span> -->
+</body>
+</html>
