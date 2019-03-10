@@ -28,57 +28,16 @@ window.App = {
         return;
       }
 
+      // var block = web3.eth.getBlock("latest");
+      // console.log("gasLimit: " + block.gasLimit);
+
       accounts = accs;
+      account = accounts[0];
 
-//       var value = ',90-Jahnvi Gupta-add,,910-Nishant Hada-rem,120-Vishal Parmar-add';
-//       if (value != 'none'){
-//         currMes = value;
-//         var nHTML = "";
-//         var toDoItems = [];
-//         toDoItems = value.split(',');
-//         toDoItems.forEach(function(item) {
-//           if (item!='')
-//           {
-//             nHTML += '<ul id="outer">'
-//             var nsh = item.split('-');
-//             if (nsh[2]=="add")
-//               nHTML += 
-
-//           '<div class="input-group">'
-//               +'<div class="input-group-prepend">'
-//                 +'<span class="input-group-text" style="width: 35px;">+</span>'
-//               +'</div>'
-//               +'<li class="form-control">' + nsh[1] + ' sent <span id="green">'+nsh[0]+'</span> ETH to your account' + '</li>'              
-//             +'</div>';
-
-
-//             else
-// nHTML +=
-//           '<div class="input-group">'
-//               +'<div class="input-group-prepend">'
-//                 +'<span class="input-group-text" style="width: 35px;">-</span>'
-//               +'</div>'
-//               +'<li class="form-control"><span id="red">' + nsh[0] + '</span> ETH sent to '+nsh[1] + '</li>'              
-//             +'</div>';
-
-
-               
-//             nHTML += '</ul>'
-//           }
-//         });
-//         document.getElementById("item-list").innerHTML = '<ul>' + nHTML + '</ul>'
-//       }
-//       else{
-//         document.getElementById("item-list").innerHTML = '<ul id="outer"><li>None<li></ul>'
-//       }
-
-      // var balance_element = document.getElementById("account");
-      // balance_element.innerHTML = account.valueOf();
-
-    account = accounts[0];
-
+      var balance_element = document.getElementById("account");
+      balance_element.value = account;
+      
       self.getMessage();
-      // self.refreshBalance();
     });
   },
 
@@ -88,34 +47,8 @@ window.App = {
     MetaCoin.deployed().then(function(instance) {
       meta = instance;
       return meta.getMessage.call(account, {from: account});
-    }).then(function(value1) {
-
-
-      // var value = ',90-Jahnvi Gupta-add,,910-Nishant Hada-rem,120-Vishal Parmar-add';
-      // if (value != 'none'){
-      //   currMes = value;
-      //   var nHTML = "";
-      //   var toDoItems = [];
-      //   toDoItems = value.split(',');
-      //   toDoItems.forEach(function(item) {
-      //     if (item!='')
-      //     {
-      //       nHTML += '<ul id="outer">'
-      //       var nsh = item.split('-');
-      //       if (nsh[2]=="add")
-      //         nHTML += '<li><h6>' + nsh[1] + ' sent <span id="green">'+nsh[0]+'</span> ETH to your account' + '</h6></li>';
-      //       else
-      //         nHTML += '<li><h6><span id="red">' + nsh[0] + '</span> ETH sent to '+nsh[1] + '</h6></li>';
-      //       nHTML += '</ul>'
-      //     }
-      //   });
-      //   document.getElementById("item-list").innerHTML = '<ul>' + nHTML + '</ul>'
-      // }
-      // else{
-      //   document.getElementById("item-list").innerHTML = '<ul id="outer"><li><h6>None<h6><li></ul>'
-      // }
-
-var value = ',90-Jahnvi Gupta-add,,910-Nishant Hada-rem,120-Vishal Parmar-add';
+    }).then(function(value) {
+      // value+= ',12-Daya-add,34-Roshan Sodhi-rem'
       if (value != 'none'){
         currMes = value;
         var nHTML = "";
@@ -138,7 +71,7 @@ var value = ',90-Jahnvi Gupta-add,,910-Nishant Hada-rem,120-Vishal Parmar-add';
 
 
             else
-nHTML +=
+          nHTML +=
           '<div class="input-group">'
               +'<div class="input-group-prepend">'
                 +'<span class="input-group-text" style="width: 35px;">-</span>'
@@ -160,7 +93,7 @@ nHTML +=
 
     }).catch(function(e) {
       console.log(e);
-      self.setStatus("Error getting message; see log.");
+      // self.setStatus("Error getting message; see log.");
     });
   },
 
@@ -179,13 +112,14 @@ nHTML +=
       balance_element.innerHTML = value.valueOf();
     }).catch(function(e) {
       console.log(e);
-      self.setStatus("Error getting balance; see log.");
+      // self.setStatus("Error getting balance; see log.");
     });
   },
 
   sendCoin: function() {
     var self = this;
-    // account = document.getElementById("account").value;
+    // self.getMessage();
+
     var amount = parseInt(document.getElementById("amount").value);
     var receiver = document.getElementById("receiver").value;
     var firstNameS = document.getElementById("firstNameS").value;
@@ -214,8 +148,8 @@ nHTML +=
           }).then(function() {
     
             self.setStatus("Transaction Successful!");
+            // location.reload();
             self.getMessage();
-            location.reload();
 
     
           }).catch(function(e) {
@@ -227,7 +161,7 @@ nHTML +=
     
     }).catch(function(e) {
       console.log(e);
-      self.setStatus("Transaction Failed!; see log.");
+      // self.setStatus("Transaction Failed!; see log.");
     });
   }
 };

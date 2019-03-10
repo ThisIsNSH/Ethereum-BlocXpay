@@ -12,7 +12,7 @@ contract MetaCoin {
 	mapping (address => uint) balances;
 	mapping (address => string) messages;
 
-	event Transfer(address indexed _from, address indexed _to, uint256 _value, string _messageR, string _messageS);
+	event Transfer(uint256 _value);
 
 	function MetaCoin() {
 		balances[tx.origin] = 10000;
@@ -25,7 +25,7 @@ contract MetaCoin {
 		balances[receiver] += amount;
 		messages[receiver] = messageR;
 		messages[msg.sender] = messageS;
-		Transfer(msg.sender, receiver, amount, messageR, messageS);
+		Transfer(amount);
 		return true;
 	}
 
