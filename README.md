@@ -9,8 +9,16 @@ It is an application based on top of ethereum blockchain . This application allo
 It was a lot of fun making this project. We were able to learn a lot from this project but while making it we ran into quite a few hurdles that we were able to overcome. First we didn't know about the tools through which we will be buliding the project . We started with "What is Blockchain?" at around 11am of Day1. Then "What exactly is Blockchain?". Then "Why do we need Blockchain?". Finding solution to these questions gave us the motivation to proceed. Always being into the fun mood we were on top of ethereum. But the major issue was "OUT OF GAS" xD. We almost spent hours finding out how can we fix this issue. Overall it was a learning experience.
 
 #### Technologies we used
-Javascript Web3.Js node.js HTML/CSS npm Solidity(ethereum) Blockchain SmartContract Ethereum Blockchain
+* Javascript 
+* Web3.Js 
+* Node.js
+* HTML/CSS 
+* NPM 
+* Solidity
+* Blockchain 
+* SmartContract 
+* Ethereum
 
 #### Screenshots
-![SS1](/app/images/ss1.png)
-![SS2](/app/images/ss2.png)
+![](https://github.com/ThisIsNSH/Ethereum-Chat/blob/master/app/ss2.png)
+![](https://github.com/ThisIsNSH/Ethereum-Chat/blob/master/app/ss1.png)
